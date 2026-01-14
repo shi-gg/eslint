@@ -4,6 +4,14 @@ import simpleImportSort from "eslint-plugin-simple-import-sort";
 import eslintPluginUnicorn from "eslint-plugin-unicorn";
 import tseslint from "typescript-eslint";
 
+import { hoistRegex } from "./rules/hoist-regex.js";
+
+export const plugin = {
+    rules: {
+        "hoist-regex": hoistRegex
+    }
+};
+
 export const base = tseslint.config(
     ...tseslint.configs.recommended,
     {
@@ -28,7 +36,8 @@ export const recommended = tseslint.config({
         "@typescript-eslint": tseslint.plugin,
         import: eslintPluginImport,
         "simple-import-sort": simpleImportSort,
-        unicorn: eslintPluginUnicorn
+        unicorn: eslintPluginUnicorn,
+        mwlica: plugin
     },
     rules: {
         "@stylistic/array-bracket-newline": ["error", "consistent"],
@@ -147,7 +156,6 @@ export const recommended = tseslint.config({
         // "@typescript-eslint/only-throw-error": "error",
         // "@typescript-eslint/prefer-readonly": "error",
         "@typescript-eslint/unbound-method": "error",
-        "import/extensions": "error",
         "import/first": "error",
         "import/newline-after-import": ["error", { considerComments: true }],
         "import/no-absolute-path": "error",
@@ -259,7 +267,8 @@ export const recommended = tseslint.config({
         "prefer-spread": "error",
         radix: "error",
         // "require-atomic-updates": "error",
-        yoda: "error"
+        yoda: "error",
+        "mwlica/hoist-regex": "error"
     }
 });
 
