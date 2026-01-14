@@ -36,7 +36,8 @@ export const hoistRegex = createRule({
                     if (
                         grandParent?.type === AST_NODE_TYPES.VariableDeclaration &&
                         grandParent.kind === "const" &&
-                        grandParent.parent?.type === AST_NODE_TYPES.Program
+                        (grandParent.parent?.type === AST_NODE_TYPES.Program ||
+                            grandParent.parent?.type === AST_NODE_TYPES.ExportNamedDeclaration)
                     ) {
                         return;
                     }

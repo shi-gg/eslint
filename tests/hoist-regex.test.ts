@@ -27,7 +27,8 @@ ruleTester.run("hoist-regex", hoistRegex, {
     function foo() {
       return REGEX.test('ab');
     }
-    `
+    `,
+        "export const EXPORTED_REGEX = /foo/;"
     ],
     invalid: [
         {
