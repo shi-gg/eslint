@@ -75,7 +75,23 @@ export const hoistRegex = createRule({
                         }
 
                         // Find where to insert
-                        const lastImport = context.sourceCode.ast.body.findLast((n) => n.type === AST_NODE_TYPES.ImportDeclaration);
+                        const body = context.sourceCode.ast.body;
+                        const lastHoistedRegex = body.findLast((n) => {
+                            if (n.type === AST_NODE_TYPES.ExportNamedDeclaration && n.declaration?.type === AST_NODE_TYPES.VariableDeclaration) {
+                                return n.declaration.declarations.some((d) => d.init?.type === AST_NODE_TYPES.Literal && "regex" in d.init);
+                            }
+                            if (n.type !== AST_NODE_TYPES.VariableDeclaration || n.kind !== "const") return false;
+                            return n.declarations.some((d) => d.init?.type === AST_NODE_TYPES.Literal && "regex" in d.init);
+                        });
+
+                        if (lastHoistedRegex) {
+                            return [
+                                fixer.insertTextAfter(lastHoistedRegex, `\nconst ${name} = ${regexText};`),
+                                fixer.replaceText(node, name)
+                            ];
+                        }
+
+                        const lastImport = body.findLast((n) => n.type === AST_NODE_TYPES.ImportDeclaration);
                         const insertPos = lastImport ? lastImport.range[1] : 0;
 
                         return [

@@ -60,6 +60,22 @@ const REGEX_1 = /ab/g;
         }
         `,
             errors: [{ messageId: "hoistRegex" }]
+        },
+        {
+            code: `
+const EXISTING = /abc/;
+function foo() {
+    return /def/.test('def');
+}
+            `,
+            output: `
+const EXISTING = /abc/;
+const REGEX = /def/;
+function foo() {
+    return REGEX.test('def');
+}
+            `,
+            errors: [{ messageId: "hoistRegex" }]
         }
     ]
 });
