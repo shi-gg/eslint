@@ -75,7 +75,7 @@ export const hoistRegex = createRule({
                         }
 
                         // Find where to insert
-                        const body = context.sourceCode.ast.body;
+                        const { body } = context.sourceCode.ast;
                         const lastHoistedRegex = body.findLast((n) => {
                             if (n.type === AST_NODE_TYPES.ExportNamedDeclaration && n.declaration?.type === AST_NODE_TYPES.VariableDeclaration) {
                                 return n.declaration.declarations.some((d) => d.init?.type === AST_NODE_TYPES.Literal && "regex" in d.init);
