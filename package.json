@@ -1,7 +1,7 @@
 {
     "name": "@mwlica/eslint",
     "private": false,
-    "version": "1.1.0",
+    "version": "1.1.2",
     "description": "strict, premade, opinionated ESLint configuration for TypeScript projects",
     "main": "dist/index.js",
     "files": [
@@ -9,6 +9,10 @@
         "tsconfig.eslint.json"
     ],
     "type": "module",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/shi-gg/eslint"
+    },
     "scripts": {
         "build": "rm -rf ./dist && tsc"
     },
