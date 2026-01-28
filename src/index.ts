@@ -1,3 +1,4 @@
+import e18e from "@e18e/eslint-plugin";
 import stylistic from "@stylistic/eslint-plugin";
 import eslintPluginImport from "eslint-plugin-import-x";
 import simpleImportSort from "eslint-plugin-simple-import-sort";
@@ -37,7 +38,8 @@ export const recommended = tseslint.config({
         import: eslintPluginImport,
         "simple-import-sort": simpleImportSort,
         unicorn: eslintPluginUnicorn,
-        mwlica: plugin
+        mwlica: plugin,
+        e18e
     },
     rules: {
         "@stylistic/array-bracket-newline": ["error", "consistent"],
@@ -268,7 +270,21 @@ export const recommended = tseslint.config({
         radix: "error",
         // "require-atomic-updates": "error",
         yoda: "error",
-        "mwlica/hoist-regex": "error"
+        "mwlica/hoist-regex": "error",
+        "e18e/prefer-array-at": "error",
+        "e18e/prefer-array-fill": "error",
+        "e18e/prefer-includes": "error",
+        "e18e/prefer-array-to-reversed": "error",
+        "e18e/prefer-array-to-sorted": "error",
+        "e18e/prefer-array-to-spliced": "error",
+        "e18e/prefer-exponentiation-operator": "error",
+        "e18e/prefer-object-has-own": "error",
+        "e18e/prefer-spread-syntax": "error",
+        "e18e/prefer-url-canparse": "error",
+        "e18e/no-indexof-equality": "error",
+        "e18e/prefer-array-from-map": "error",
+        "e18e/prefer-date-now": "error",
+        "e18e/prefer-regex-test": "error"
     }
 });
 
