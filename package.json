@@ -1,7 +1,7 @@
 {
     "name": "@mwlica/eslint",
     "private": false,
-    "version": "1.1.2",
+    "version": "1.1.3",
     "description": "strict, premade, opinionated ESLint configuration for TypeScript projects",
     "main": "dist/index.js",
     "files": [
