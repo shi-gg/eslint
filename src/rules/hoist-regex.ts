@@ -60,10 +60,7 @@ export const hoistRegex = createRule({
 
                         const isNameTaken = (n: string) => {
                             if (moduleScope.variables.some((v) => v.name === n)) return true;
-
-                            const ref = scope.references.find((r) => r.identifier.name === n);
-
-                            if (ref) return true;
+                            if (scope.references.some((r) => r.identifier.name === n)) return true;
                             if (scope.variables.some((v) => v.name === n)) return true;
 
                             return false;

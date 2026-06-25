@@ -172,7 +172,7 @@ export const recommended = tseslint.config({
         "simple-import-sort/exports": "error",
         "simple-import-sort/imports": ["error", { groups: [["^~/utils/sentry$"], ["^\\u0000", "^[^~./]"], ["^~"], ["^\\./", "^\\.\\./"]] }],
         "unicorn/escape-case": "error",
-        "unicorn/filename-case": ["error", { cases: { pascalCase: true, snakeCase: true, kebabCase: true } }],
+        "unicorn/filename-case": ["error", { cases: { pascalCase: true, camelCase: true, snakeCase: true, kebabCase: true } }],
         "unicorn/no-hex-escape": "error",
         "unicorn/no-zero-fractions": "error",
         "unicorn/number-literal-case": "error",
@@ -185,7 +185,7 @@ export const recommended = tseslint.config({
         "unicorn/error-message": "error",
         "unicorn/new-for-builtins": "error",
         "unicorn/no-array-callback-reference": "error",
-        "unicorn/no-array-for-each": "error",
+        "unicorn/no-for-each": "error",
         "unicorn/no-array-push-push": "error",
         "unicorn/no-console-spaces": "error",
         "unicorn/no-for-loop": "error",
@@ -281,10 +281,18 @@ export const recommended = tseslint.config({
         "e18e/prefer-object-has-own": "error",
         "e18e/prefer-spread-syntax": "error",
         "e18e/prefer-url-canparse": "error",
+        "e18e/ban-dependencies": "error",
         "e18e/no-indexof-equality": "error",
+        "e18e/prefer-array-some": "error",
         "e18e/prefer-array-from-map": "error",
+        "e18e/prefer-timer-args": "error",
         "e18e/prefer-date-now": "error",
-        "e18e/prefer-regex-test": "error"
+        "e18e/prefer-regex-test": "error",
+        "e18e/prefer-string-fromcharcode": "error",
+        "e18e/prefer-includes-over-regex-test": "error",
+        "e18e/prefer-flatmap-over-map-flat": "error",
+        "e18e/no-spread-in-reduce": "error",
+        "e18e/prefer-static-collator": "error"
     }
 });
 
