@@ -6,11 +6,13 @@ import eslintPluginUnicorn from "eslint-plugin-unicorn";
 import tseslint from "typescript-eslint";
 
 import { hoistRegex } from "./rules/hoist-regex.js";
+import { noChainedTypeAssertions } from "./rules/no-chained-type-assertions.js";
 import { noKnownValueWidening } from "./rules/no-known-value-widening.js";
 
 export const plugin = {
     rules: {
         "hoist-regex": hoistRegex,
+        "no-chained-type-assertions": noChainedTypeAssertions,
         "no-known-value-widening": noKnownValueWidening
     }
 };
@@ -273,6 +275,7 @@ export const recommended = tseslint.config({
         // "require-atomic-updates": "error",
         yoda: "error",
         "mwlica/hoist-regex": "error",
+        "mwlica/no-chained-type-assertions": "error",
         "mwlica/no-known-value-widening": "error",
         "e18e/prefer-array-at": "error",
         "e18e/prefer-array-fill": "error",
