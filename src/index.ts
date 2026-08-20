@@ -7,10 +7,12 @@ import tseslint from "typescript-eslint";
 
 import { hoistRegex } from "./rules/hoist-regex.js";
 import { noKnownValueWidening } from "./rules/no-known-value-widening.js";
+import { noWidenThenAssert } from "./rules/no-widen-then-assert.js";
 
 export const plugin = {
     rules: {
         "hoist-regex": hoistRegex,
+        "no-widen-then-assert": noWidenThenAssert,
         "no-known-value-widening": noKnownValueWidening
     }
 };
@@ -273,6 +275,7 @@ export const recommended = tseslint.config({
         // "require-atomic-updates": "error",
         yoda: "error",
         "mwlica/hoist-regex": "error",
+        "mwlica/no-widen-then-assert": "error",
         "mwlica/no-known-value-widening": "error",
         "e18e/prefer-array-at": "error",
         "e18e/prefer-array-fill": "error",
