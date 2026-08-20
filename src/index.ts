@@ -7,10 +7,12 @@ import tseslint from "typescript-eslint";
 
 import { hoistRegex } from "./rules/hoist-regex.js";
 import { noKnownValueWidening } from "./rules/no-known-value-widening.js";
+import { noUnknownTypeAliases } from "./rules/no-unknown-type-aliases.js";
 
 export const plugin = {
     rules: {
         "hoist-regex": hoistRegex,
+        "no-unknown-type-aliases": noUnknownTypeAliases,
         "no-known-value-widening": noKnownValueWidening
     }
 };
@@ -273,6 +275,7 @@ export const recommended = tseslint.config({
         // "require-atomic-updates": "error",
         yoda: "error",
         "mwlica/hoist-regex": "error",
+        "mwlica/no-unknown-type-aliases": "error",
         "mwlica/no-known-value-widening": "error",
         "e18e/prefer-array-at": "error",
         "e18e/prefer-array-fill": "error",
