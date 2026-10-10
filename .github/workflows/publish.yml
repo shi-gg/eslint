@@ -12,9 +12,7 @@ jobs:
     publish:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v6
-              with:
-                  fetch-depth: 0
+            - uses: actions/checkout@v7
 
             - name: Check if package version changed
               id: check_publish
@@ -35,11 +33,12 @@ jobs:
                   fi
 
             - uses: oven-sh/setup-bun@v2
-              with:
-                  bun-version: "latest"
 
-            - run: bun install --frozen-lockfile
-            - run: bun run build
+            - name: Install packages
+              run: bun install --frozen-lockfile
+
+            - name: Compile source
+              run: bun run build
 
             - uses: actions/setup-node@v6
               if: env.publish == 'true'
