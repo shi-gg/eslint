@@ -1,0 +1,25 @@
+name: Run tests
+
+on:
+    pull_request:
+        branches: [main]
+
+jobs:
+    tests:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v7
+            - uses: oven-sh/setup-bun@v2
+
+            - name: Install packages
+              run: bun install --frozen-lockfile
+
+            - name: Compile source
+              run: bun run build
+
+            - name: Run linters
+              run: bunx eslint ./src --no-fix
+
+            - name: Run tests
+              run: bun test --concurrent
