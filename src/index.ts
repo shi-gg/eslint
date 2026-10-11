@@ -5,13 +5,11 @@ import simpleImportSort from "eslint-plugin-simple-import-sort";
 import eslintPluginUnicorn from "eslint-plugin-unicorn";
 import tseslint from "typescript-eslint";
 
-import { hoistRegex } from "./rules/hoist-regex.js";
 import { noKnownValueWidening } from "./rules/no-known-value-widening.js";
 import { noObjectParameters } from "./rules/no-object-parameters.js";
 
 export const plugin = {
     rules: {
-        "hoist-regex": hoistRegex,
         "no-object-parameters": noObjectParameters,
         "no-known-value-widening": noKnownValueWidening
     }
@@ -169,7 +167,7 @@ export const recommended = tseslint.config({
         "import/no-empty-named-blocks": "error",
         "import/no-extraneous-dependencies": "error",
         "import/no-relative-packages": "error",
-        "import/no-unused-modules": "error",
+        // "import/no-unused-modules": "error",
         "import/no-self-import": "error",
         "import/no-useless-path-segments": "error",
         "import/no-cycle": ["error", { maxDepth: Infinity }],
@@ -274,7 +272,6 @@ export const recommended = tseslint.config({
         radix: "error",
         // "require-atomic-updates": "error",
         yoda: "error",
-        "mwlica/hoist-regex": "error",
         "mwlica/no-object-parameters": "error",
         "mwlica/no-known-value-widening": "error",
         "e18e/prefer-array-at": "error",
@@ -284,9 +281,11 @@ export const recommended = tseslint.config({
         "e18e/prefer-array-to-sorted": "error",
         "e18e/prefer-array-to-spliced": "error",
         "e18e/prefer-exponentiation-operator": "error",
+        "e18e/prefer-nullish-coalescing": "error",
         "e18e/prefer-object-has-own": "error",
         "e18e/prefer-spread-syntax": "error",
         "e18e/prefer-url-canparse": "error",
+        "e18e/prefer-get-or-insert": "error",
         "e18e/ban-dependencies": "error",
         "e18e/no-indexof-equality": "error",
         "e18e/prefer-array-some": "error",
@@ -294,9 +293,15 @@ export const recommended = tseslint.config({
         "e18e/prefer-timer-args": "error",
         "e18e/prefer-date-now": "error",
         "e18e/prefer-regex-test": "error",
+        "e18e/prefer-static-regex": "error",
+        "e18e/prefer-inline-equality": "error",
         "e18e/prefer-string-fromcharcode": "error",
         "e18e/prefer-includes-over-regex-test": "error",
+        "e18e/prefer-charcode-at-in-loop": "error",
+        "e18e/prefer-throw-if-no-entry": "error",
+        "e18e/no-delete-property": "error",
         "e18e/prefer-flatmap-over-map-flat": "error",
+        "e18e/prefer-slice-over-split-index": "error",
         "e18e/no-spread-in-reduce": "error",
         "e18e/prefer-static-collator": "error"
     }
