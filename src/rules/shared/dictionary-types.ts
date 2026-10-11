@@ -71,9 +71,8 @@ export function createTypeEnvironment(program: TSESTree.Program): TypeEnvironmen
         }
 
         if (declaration?.type === "TSInterfaceDeclaration") {
-            const declarations = interfaces.get(declaration.id.name) ?? [];
+            const declarations = interfaces.getOrInsert(declaration.id.name, []);
             declarations.push(declaration);
-            interfaces.set(declaration.id.name, declarations);
             if (BUILT_INS.has(declaration.id.name)) shadowedBuiltIns.add(declaration.id.name);
             continue;
         }
